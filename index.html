@@ -1,0 +1,917 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Anniversary 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Kanit", sans-serif;
+    color: #663b4d;
+    background:
+        radial-gradient(circle at 20% 10%, #ffffff 0, transparent 30%),
+        linear-gradient(135deg, #fff1f6, #ffd5e5, #fff7fa);
+    overflow-x: hidden;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.card {
+    width: min(600px, 100%);
+    padding: 55px 30px;
+    text-align: center;
+
+    background: rgba(255,255,255,0.65);
+    border: 1px solid rgba(255,255,255,0.9);
+    border-radius: 35px;
+
+    box-shadow:
+        0 25px 70px rgba(190,67,112,0.18);
+
+    backdrop-filter: blur(20px);
+}
+
+.small-title {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #df5d88;
+}
+
+.heart {
+    font-size: 85px;
+    color: #f05b8b;
+    animation: beat 1.8s infinite;
+}
+
+h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(42px, 10vw, 70px);
+    color: #d84d7d;
+    margin: 10px 0;
+}
+
+.date {
+    font-size: 18px;
+    letter-spacing: 4px;
+}
+
+.intro {
+    color: #8d6373;
+    margin: 25px 0;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.main-button,
+.secret-button {
+    color: white;
+    background: linear-gradient(135deg, #ff80aa, #e94e83);
+
+    padding: 14px 30px;
+    border-radius: 50px;
+
+    font-size: 16px;
+
+    box-shadow:
+        0 12px 30px rgba(233,78,131,0.25);
+
+    transition: 0.25s;
+}
+
+.main-button:hover,
+.secret-button:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.section {
+    width: min(900px, calc(100% - 40px));
+    margin: auto;
+    padding: 90px 0;
+    text-align: center;
+}
+
+.label {
+    color: #df5d88;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+h2 {
+    font-size: clamp(28px, 6vw, 42px);
+    color: #b83d69;
+}
+
+.text {
+    max-width: 680px;
+    margin: auto;
+
+    line-height: 2;
+    color: #795566;
+}
+
+.counter-box {
+    width: min(850px, calc(100% - 40px));
+    margin: auto;
+
+    padding: 45px 25px;
+    text-align: center;
+
+    background: rgba(255,255,255,0.65);
+    border-radius: 30px;
+
+    box-shadow: 0 20px 60px rgba(190,67,112,0.13);
+}
+
+.counter-box h2 {
+    font-size: 55px;
+    margin: 10px;
+}
+
+.counter {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+.counter div {
+    background: rgba(255,255,255,0.75);
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.counter strong {
+    display: block;
+    font-size: 30px;
+    color: #df4f80;
+}
+
+.counter span {
+    font-size: 13px;
+    color: #987080;
+}
+
+.photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    margin-top: 35px;
+}
+
+.photo {
+    background: white;
+    padding: 10px;
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(190,67,112,0.12);
+}
+
+.photo img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.photo p {
+    margin: 10px;
+}
+
+.letter {
+    width: min(750px, calc(100% - 40px));
+    margin: auto;
+
+    padding: 45px;
+
+    background: #fffdfb;
+    border-radius: 10px;
+
+    box-shadow: 0 20px 60px rgba(145,73,97,0.15);
+
+    text-align: left;
+}
+
+.letter p {
+    line-height: 2;
+}
+
+.secret {
+    text-align: center;
+    padding: 80px 20px;
+    min-height: 500px;
+}
+
+.secret-message {
+    max-width: 600px;
+    margin: 40px auto;
+
+    padding: 40px 25px;
+
+    background: rgba(255,255,255,0.7);
+    border-radius: 30px;
+
+    box-shadow: 0 20px 60px rgba(190,67,112,0.15);
+}
+
+.secret-message .heart {
+    font-size: 65px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+
+    font-size: 13px;
+    color: #a36d80;
+}
+
+#hearts {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    overflow: hidden;
+
+    z-index: 100;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -30px;
+
+    animation: floatUp linear forwards;
+}
+
+/* =========================
+   ปุ่มเพลง
+========================= */
+
+.music-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    z-index: 999;
+
+    background: rgba(255,255,255,0.85);
+    color: #d94d7f;
+
+    border: 1px solid #ffd0df;
+    border-radius: 50px;
+
+    padding: 10px 17px;
+
+    box-shadow:
+        0 8px 25px rgba(190,67,112,0.15);
+
+    backdrop-filter: blur(10px);
+
+    font-size: 14px;
+
+    transition: 0.25s;
+}
+
+.music-button:hover {
+    transform: scale(1.05);
+}
+
+@keyframes beat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.15);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+}
+
+@keyframes floatUp {
+
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(40deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .card {
+        padding: 45px 20px;
+    }
+
+    .photos {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        max-width: 330px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .counter-box h2 {
+        font-size: 43px;
+    }
+
+    .letter {
+        padding: 30px 25px;
+    }
+
+    .music-button {
+        top: 12px;
+        right: 12px;
+        font-size: 12px;
+        padding: 8px 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     เพลง
+========================= -->
+
+<audio id="music" loop>
+    <source src="Nadhif Basalamah kota ini tak sama tanpamu Official Lyric Video.mp3" type="audio/mpeg">
+</audio>
+
+<button
+    id="musicButton"
+    class="music-button"
+    onclick="toggleMusic()">
+
+    🎵 เพลงปิดอยู่
+
+</button>
+
+
+<!-- หัวใจลอย -->
+<div id="hearts"></div>
+
+
+<!-- =========================
+     หน้าเปิด
+========================= -->
+
+<section class="hero">
+
+    <div class="card">
+
+        <div class="small-title">
+            อะลิตเติ้ลเซอร์ไพรส์ฟอร์น้องบุ๊
+        </div>
+
+        <div class="heart">
+            ♡
+        </div>
+
+        <h1>
+            Happy Anniversary
+        </h1>
+
+        <div class="date">
+            05 • 09 • 2026
+        </div>
+
+        <p class="intro">
+            มีอะไรจะบอกด้วยแหละะะ...
+        </p>
+
+        <button
+            class="main-button"
+            onclick="openSurprise()">
+
+            กดตรงนี้ๆๆๆๆ 💗
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<main id="content" class="hidden">
+
+
+<section class="section">
+
+    <div class="label">
+        OUR STORY
+    </div>
+
+    <h2>
+        ยูรู้มั้ย You are my sunshine
+    </h2>
+
+    <p class="text">
+
+        ตั้งแต่วันที่เราเริ่มคุยกัน
+        จนถึงวันนี้อะ ตัสณีย์กลายเป็นหนึ่งในคนที่ทำให้
+        แต่ละวันมีความหมายมากขึ้นและเป็นสิ่งที่ขาดไปไม่ได้อีกเลย
+
+        <br><br>
+
+        ขอบคุณสำหรับทุกช่วงเวลา
+        ทุกเสียงหัวเราะ
+        และทุกช่วงเวลาที่เราได้มีด้วยกันนะน้องวอหรือ"บุ๊" 💕
+
+    </p>
+
+</section>
+
+
+<section>
+
+    <div class="counter-box">
+
+        <div class="label">
+            TIME TOGETHER
+        </div>
+
+        <h2 id="days">
+            0 วัน
+        </h2>
+
+        <div class="counter">
+
+            <div>
+                <strong id="hours">0</strong>
+                <span>ชั่วโมง</span>
+            </div>
+
+            <div>
+                <strong id="minutes">0</strong>
+                <span>นาที</span>
+            </div>
+
+            <div>
+                <strong id="seconds">0</strong>
+                <span>วินาที</span>
+            </div>
+
+        </div>
+
+        <p>
+            และหวังว่าจะมีวันต่อ ๆ ไปอีกเยอะเลยนะ
+            ให้เวลาด้านบนนี้มันเดินต่อๆๆๆๆไปเรื่อยยยๆ 🤍
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="label">
+        MEMORIES
+    </div>
+
+    <h2>
+        ฟามทรงจำดี๊ดี 📸
+    </h2>
+
+    <div class="photos">
+
+        <div class="photo">
+
+            <img src="photo1.jpg">
+
+            <p>
+                จุดเริ่มต้นคือส่งรูปหลุดและเทอมาว่าเราเป็นเกย์เมะมาเฟีย!!! แค้นครับ เอามาเป็นแฟนซะเลย 😾
+            </p>
+
+        </div>
+
+
+        <div class="photo">
+
+            <img src="photo2.jpg">
+
+            <p>
+                ช่วงเวลานึงที่มีความสุขมากๆๆๆๆๆ ได้เป็นพี่เลี้ยงคนที่สามด้วยความสมัครใจถึงเพื่อนจะบ่นก็เถอะ
+                แต่ถ้าถามว่าสนมั้ย"ก็ไม่"🌷
+            </p>
+
+        </div>
+
+
+        <div class="photo">
+
+            <img src="photo3.jpg">
+
+            <p>
+                เป็นวันที่นั่งเหม่อๆ
+                แล้วอยู่ๆเทอก็เดินเข้ามาจ๊ะเอ๋ ✨
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="letter">
+
+        <div class="label">
+            ไม่รุ้จะพูดอะไรหวานๆให้เธอรู้สึกประทับจายยยย
+        </div>
+
+        <h2>
+            ถึงน้องบุ๊💌
+        </h2>
+
+        <p>
+            ไม่รู้ว่าตัสณีย์จะรู้ไหมว่า
+            ดีใจแค่ไหนที่ได้รู้จักเธอ
+
+            บางที I อาจจะพูดไม่เก่ง
+            หรือไม่ได้บอกทุกอย่างออกไปตรง ๆ
+
+            แต่อยากให้รู้ว่า
+            รู้สึกดีมาก ๆ ที่มีเธออยู่ตรงนี้
+        </p>
+
+        <p>
+            ขอบคุณที่อยู่ด้วยกัน
+            ขอบคุณที่รับฟังกันเพราะบ่นให้แวฟังทู๊กกกเรื่อง
+            และขอบคุณสำหรับทุกวันที่ทำให้ยิ้มได้ #ยิ้มแป้นๆ
+        </p>
+
+        <p>
+            ขอให้เรามีโอกาสสร้างความทรงจำดี ๆ
+            ด้วยกันอีกเยอะ ๆ เลยนะะะะะ
+
+            <br><br>
+
+            จุ๊บุ๊ 💗
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="secret">
+
+    <button
+        class="secret-button"
+        onclick="showSecret()">
+
+        อะๆๆสุดท้ายละๆ 🎁
+
+    </button>
+
+
+    <div
+        id="secret"
+        class="secret-message hidden">
+
+        <div class="heart">
+            ♥
+        </div>
+
+        <h2>
+            Surprise! 💗
+        </h2>
+
+        <p>
+            น้องบุ๊คือหนึ่งในเรื่องราวที่ดีที่สุดเลยนะ
+        </p>
+
+        <p>
+            สุขสันต์วันครบรอบ กี่เดือนนะ....
+            ให้ทายยยย
+
+            เฉลย ฉองเดือนนน🤍
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    ของ Limited ชิ้นเดียวในโลกสำหรับนางสาวแวตัสณีย์ แวอูเซ็ง only♡
+
+</footer>
+
+
+<script>
+
+/* =========================
+   วันเริ่มนับ Time Together
+========================= */
+
+const startDate =
+    new Date(2026, 7, 5, 0, 0, 0);
+
+
+/* =========================
+   ระบบเพลง
+========================= */
+
+const music =
+    document.getElementById("music");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+
+function toggleMusic() {
+
+    if (music.paused) {
+
+        music.play();
+
+        musicButton.textContent =
+            "⏸️ หยุดเพลง";
+
+    } else {
+
+        music.pause();
+
+        musicButton.textContent =
+            "🎵 เปิดเพลง";
+
+    }
+
+}
+
+
+/* =========================
+   เปิดเซอร์ไพรส์
+   + เริ่มเพลง
+========================= */
+
+function openSurprise() {
+
+    const content =
+        document.getElementById("content");
+
+
+    content.classList.remove("hidden");
+
+
+    /*
+       เพราะผู้ใช้กดปุ่มเอง
+       Browser จึงอนุญาตให้เพลงเริ่มเล่น
+    */
+
+    music.play()
+        .then(() => {
+
+            musicButton.textContent =
+                "⏸️ หยุดเพลง";
+
+        })
+        .catch(() => {
+
+            musicButton.textContent =
+                "🎵 เปิดเพลง";
+
+        });
+
+
+    content.scrollIntoView({
+        behavior: "smooth"
+    });
+
+
+    for (
+        let i = 0;
+        i < 25;
+        i++
+    ) {
+
+        setTimeout(
+            createHeart,
+            i * 80
+        );
+
+    }
+
+}
+
+
+/* =========================
+   Counter
+========================= */
+
+function updateCounter() {
+
+    const now = new Date();
+
+    let difference =
+        now - startDate;
+
+    if (difference < 0) {
+        difference = 0;
+    }
+
+    const totalSeconds =
+        Math.floor(difference / 1000);
+
+    const days =
+        Math.floor(
+            totalSeconds / 86400
+        );
+
+    const hours =
+        Math.floor(
+            (totalSeconds % 86400) / 3600
+        );
+
+    const minutes =
+        Math.floor(
+            (totalSeconds % 3600) / 60
+        );
+
+    const seconds =
+        totalSeconds % 60;
+
+
+    document.getElementById("days")
+        .textContent =
+        days + " วัน";
+
+    document.getElementById("hours")
+        .textContent =
+        hours;
+
+    document.getElementById("minutes")
+        .textContent =
+        minutes;
+
+    document.getElementById("seconds")
+        .textContent =
+        seconds;
+
+}
+
+setInterval(updateCounter, 1000);
+
+updateCounter();
+
+
+/* =========================
+   Secret
+========================= */
+
+function showSecret() {
+
+    const secret =
+        document.getElementById("secret");
+
+    secret.classList.remove("hidden");
+
+
+    for (
+        let i = 0;
+        i < 40;
+        i++
+    ) {
+
+        setTimeout(
+            createHeart,
+            i * 60
+        );
+
+    }
+
+
+    secret.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+
+/* =========================
+   หัวใจลอย
+========================= */
+
+function createHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className =
+        "floating-heart";
+
+
+    const heartTypes = [
+        "♥",
+        "♡",
+        "💗",
+        "💕",
+        "💖"
+    ];
+
+
+    heart.textContent =
+        heartTypes[
+            Math.floor(
+                Math.random()
+                * heartTypes.length
+            )
+        ];
+
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+    heart.style.fontSize =
+        (14 + Math.random() * 22)
+        + "px";
+
+
+    heart.style.animationDuration =
+        (4 + Math.random() * 4)
+        + "s";
+
+
+    document
+        .getElementById("hearts")
+        .appendChild(heart);
+
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    }, 8500);
+
+}
+
+
+/* =========================
+   หัวใจลอยเบา ๆ
+========================= */
+
+setInterval(() => {
+
+    if (Math.random() > 0.45) {
+
+        createHeart();
+
+    }
+
+}, 1200);
+
+</script>
+
+</body>
+</html>
+```
